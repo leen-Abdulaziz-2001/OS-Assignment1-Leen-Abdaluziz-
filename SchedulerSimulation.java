@@ -295,10 +295,8 @@ public class SchedulerSimulation {
                           Colors.RESET + Colors.BLUE + " added to ready queue" + Colors.RESET + 
                           " │ Burst time: " + Colors.YELLOW + process.getBurstTime() + "ms" + 
                           Colors.RESET);
-    } 
-    // FEATURE 1: Getter for priority
-    public int getPriority() {
-        return priority;
-    }
+    } // FEATURE 1: Add priority field (integer 1-5, where 5 is highest)
+    private int priority; // Priority of the process (1-5, 5 being highest)
+    
 
 }
