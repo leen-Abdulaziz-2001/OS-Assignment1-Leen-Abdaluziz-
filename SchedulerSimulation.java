@@ -307,3 +307,10 @@ public class SchedulerSimulation {
 
     // Constructor to initialize the process with name, burst time, time quantum, and priority
  // FEATURE 1: Added priority parameter to constructor
+// FEATURE 3: Initialize timing fields
+    public Process(String name, int burstTime, int timeQuantum, int priority) {
+        this.name = name;
+        this.burstTime = burstTime;
+        this.timeQuantum = timeQuantum;
+        this.remainingTime = burstTime; // Initially, remaining time is equal to the burst time
+        this.priority = priority; // FEATURE 1: Initialize priority
