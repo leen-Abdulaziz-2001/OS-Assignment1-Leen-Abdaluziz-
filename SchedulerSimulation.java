@@ -300,3 +300,9 @@ public class SchedulerSimulation {
     
 
 }
+// FEATURE 2: Fields to track waiting time
+    private long creationTime; // Time when process was created (in milliseconds)
+    private long totalWaitingTime; // Total time spent waiting in queue (in milliseconds)
+    private long lastReadyTime; // Last time the process entered the ready queue
+
+    // Constructor to initialize the process with name, burst time, time quantum, and priority
