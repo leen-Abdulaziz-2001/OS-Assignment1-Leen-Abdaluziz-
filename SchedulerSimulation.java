@@ -306,3 +306,4 @@ public class SchedulerSimulation {
     private long lastReadyTime; // Last time the process entered the ready queue
 
     // Constructor to initialize the process with name, burst time, time quantum, and priority
+ // FEATURE 1: Added priority parameter to constructor
