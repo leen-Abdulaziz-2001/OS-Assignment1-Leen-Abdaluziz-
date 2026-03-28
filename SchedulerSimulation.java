@@ -314,3 +314,107 @@ public class SchedulerSimulation {
         this.timeQuantum = timeQuantum;
         this.remainingTime = burstTime; // Initially, remaining time is equal to the burst time
         this.priority = priority; // FEATURE 1: Initialize priority
+        // FEATURE 3: Initialize timing fields
+        this.creationTime = System.currentTimeMillis(); // Record when process is created
+        this.totalWaitingTime = 0; // Start with 0 waiting time
+        this.lastReadyTime = this.creationTime; // Initially, process is ready at creation
+    }
+
+    // This method will be called when the thread for this process is started
+    @Override
+    public void run() {
+        // Simulate running for either the time quantum or remaining time, whichever is smaller
+        int runTime = Math.min(timeQuantum, remainingTime); // Run for the smaller of the two times
+        
+        // Show quantum execution starting
+        String quantumBar = createProgressBar(0, 15);
+        System.out.println(Colors.BRIGHT_GREEN + "  ▶ " + Colors.BOLD + Colors.CYAN + name + 
+                          Colors.RESET + Colors.GREEN + " executing quantum" + Colors.RESET + 
+                          " [" + runTime + "ms] ");
+        
+        try {
+            // Simulate quantum execution with progress updates
+            int steps = 5; // Number of progress updates
+            int stepTime = runTime / steps;
+            
+            for (int i = 1; i <= steps; i++) {
+                Thread.sleep(stepTime);
+                int quantumProgress = (i * 100) / steps;
+                quantumBar = createProgressBar(quantumProgress, 15);
+                
+                // Clear line and show updated progress
+                System.out.print("\r  " + Colors.YELLOW + "⚡" + Colors.RESET + 
+                                " Quantum progress: " + quantumBar);
+            }
+            System.out.println(); // New line after quantum completion
+            
+        } catch (InterruptedException e) {
+            System.out.println(Colors.RED + "\n  ✗ " + name + " was interrupted." + Colors.RESET);
+        }
+        
+        remainingTime -= runTime; // Deduct the run time from the remaining time
+        int overallProgress = (int) (((double)(burstTime - remainingTime) / burstTime) * 100);
+        String overallProgressBar = createProgressBar(overallProgress, 20);
+        
+        System.out.println(Colors.YELLOW + "  ⏸ " + Colors.CYAN + name + Colors.RESET + 
+                          " completed quantum " + Colors.BRIGHT_YELLOW + runTime + "ms" + Colors.RESET + 
+                          " │ Overall progress: " + overallProgressBar);
+        System.out.println(Colors.MAGENTA + "     Remaining time: " + remainingTime + "ms" + Colors.RESET);
+        
+        // If the process still has remaining time, it yields CPU for the next process
+        if (remainingTime > 0) {
+            System.out.println(Colors.BLUE + "  ↻ " + Colors.CYAN + name + Colors.RESET + 
+                              " yields CPU for context switch" + Colors.RESET);
+        } else {
+            // If no time is left, the process has finished its execution
+            System.out.println(Colors.BRIGHT_GREEN + "  ✓ " + Colors.BOLD + Colors.CYAN + name + 
+                              Colors.RESET + Colors.BRIGHT_GREEN + " finished execution!" + 
+                              Colors.RESET);
+        }
+        System.out.println();
+    }
+    
+    // Helper method to create a visual progress bar
+    private String createProgressBar(int progress, int width) {
+        int filled = (progress * width) / 100;
+        StringBuilder bar = new StringBuilder("[");
+        for (int i = 0; i < width; i++) {
+            if (i < filled) {
+                bar.append(Colors.GREEN + "█" + Colors.RESET);
+            } else {
+                bar.append(Colors.WHITE + "░" + Colors.RESET);
+            }
+        }
+        bar.append("] ").append(progress).append("%");
+        return bar.toString();
+    }
+
+    // Method to run the last process to completion, ignoring the time quantum
+    public void runToCompletion() {
+        try {
+            // Run for the remaining time without splitting into smaller time slices
+            System.out.println(Colors.BRIGHT_CYAN + "  ⚡ " + Colors.BOLD + Colors.CYAN + name + 
+                              Colors.RESET + Colors.BRIGHT_CYAN + " is the last process, running to completion" + 
+                              Colors.RESET + " [" + remainingTime + "ms]");
+            Thread.sleep(remainingTime); // Run until completion
+            remainingTime = 0; // Mark the process as completed
+            System.out.println(Colors.BRIGHT_GREEN + "  ✓ " + Colors.BOLD + Colors.CYAN + name + 
+                              Colors.RESET + Colors.BRIGHT_GREEN + " finished execution!" + Colors.RESET);
+            System.out.println();
+        } catch (InterruptedException e) {
+            System.out.println(Colors.RED + "  ✗ " + name + " was interrupted." + Colors.RESET);
+        }
+    }
+
+    // Getter methods for process name, burst time, and remaining time
+    public String getName() {
+        return name;
+    }
+
+    public int getBurstTime() {
+        return burstTime;
+    }
+
+    public int getRemainingTime() {
+        return remainingTime;
+    }
