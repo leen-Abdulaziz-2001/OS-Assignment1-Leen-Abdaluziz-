@@ -30,7 +30,13 @@ class Process implements Runnable {
     private int burstTime; // Total time the process requires to complete (in milliseconds)
     private int timeQuantum; // Time slice (time quantum) allowed per CPU access (in milliseconds)
     private int remainingTime; // Time left for the process to finish its execution
-    
+    // FEATURE 1: Add priority field (integer 1-5, where 5 is highest)
+private int priority;
+
+// FEATURE 2: Fields to track waiting time
+private long creationTime; // Time when process was created
+private long totalWaitingTime; // Total waiting time in queue
+private long lastReadyTime; // Last time entered ready queue
 
     // Constructor to initialize the process with name, burst time, and time quantum
     public Process(String name, int burstTime, int timeQuantum) {
