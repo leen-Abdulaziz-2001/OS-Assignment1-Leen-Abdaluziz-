@@ -594,3 +594,7 @@ public class SchedulerSimulation {
                                       Colors.RESET + Colors.YELLOW + " is the last process → running to completion" + 
                                       Colors.RESET);
                     process.runToCompletion(); // Run until the process completes
+                    // FEATURE 3: Add to completed processes list for summary
+                    completedProcesses.add(process);
+                }
+            } else {
