@@ -582,3 +582,15 @@ public class SchedulerSimulation {
             if (!process.isFinished()) {
                 // If the process still has remaining time, check if there are more processes in queue
                 if (!processQueue.isEmpty()) {
+                    // FEATURE 3: Set last ready time when re-entering queue
+                    // This marks when the process started waiting again
+                    process.setLastReadyTime(System.currentTimeMillis());
+                    
+                    // Re-enqueue the process to give it another chance to run in the next round
+                    addProcessToQueue(process, processQueue, processMap);
+                } else {
+                    // If this is the last process in the queue, run it to completion
+                    System.out.println(Colors.BRIGHT_YELLOW + "  ⚠ " + Colors.CYAN + process.getName() + 
+                                      Colors.RESET + Colors.YELLOW + " is the last process → running to completion" + 
+                                      Colors.RESET);
+                    process.runToCompletion(); // Run until the process completes
