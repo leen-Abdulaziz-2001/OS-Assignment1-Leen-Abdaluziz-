@@ -419,7 +419,9 @@ public class SchedulerSimulation {
         return remainingTime;
     }
  
-    // FEATURE 3: Getter for creation time
-    public long getCreationTime() {
-        return creationTime;
+    
+     
+    // FEATURE 1: Getter for priority
+    public int getPriority() {
+        return priority;
     }
