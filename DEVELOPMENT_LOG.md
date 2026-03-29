@@ -50,7 +50,7 @@ Document your development process as you work on the assignment. Add entries sho
 ---
 
 ### Entry 2 - [March 23,2026 and 10:00]
-**What I did**: ‏I set up my development environment and prepared the code for testing.
+**What I did**: ‏I set up my development environment and ‏updated my student ID to 445052011, and prepared the code for testing
 ‏
 
 
