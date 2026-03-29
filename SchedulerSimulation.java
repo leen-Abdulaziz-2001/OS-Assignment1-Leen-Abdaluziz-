@@ -632,3 +632,20 @@ public class SchedulerSimulation {
         System.out.println(Colors.BOLD + Colors.BRIGHT_YELLOW + 
                           "╚════════════════════════════════════════════════════════════════════════════════╝" + 
                           Colors.RESET + "\n");
+        // FEATURE 3: Display waiting time summary table at the end
+        displayWaitingTimeSummary();
+    }
+    
+    // Method to add a process to the queue and map, while printing a "ready" message
+    // FEATURE 1: Updated to display priority in the output message
+    public static void addProcessToQueue(Process process, Queue<Thread> processQueue, 
+                                        Map<Thread, Process> processMap) {
+        // Create a new thread to run the process
+        Thread thread = new Thread(process);
+        
+        // Add the thread to the ready queue
+        processQueue.add(thread);
+        
+        // Map the thread to the process, so we can track the process associated with each thread
+        processMap.put(thread, process);
+
