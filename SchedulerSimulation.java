@@ -548,4 +548,37 @@ public class SchedulerSimulation {
             
             // Retrieve the process associated with the thread from the map
             Process process = processMap.get(currentThread);
-
+// FEATURE 3: Update waiting time for this process before it runs
+            // Calculate how long it waited in queue since it was last added
+            process.updateWaitingTime();
+            
+            // Print the current process queue (list of process IDs in the queue)
+            System.out.println(Colors.BOLD + Colors.MAGENTA + "┌─ Ready Queue " + "─".repeat(65) + Colors.RESET);
+            System.out.print(Colors.MAGENTA + "│ " + Colors.RESET + Colors.BRIGHT_WHITE + "[" + Colors.RESET);
+            int queueCount = 0;
+            for (Thread thread : processQueue) {
+                Process p = processMap.get(thread);
+                if (queueCount > 0) System.out.print(Colors.WHITE + " → " + Colors.RESET);
+                System.out.print(Colors.BRIGHT_CYAN + p.getName() + Colors.RESET);
+                queueCount++;
+            }
+            if (queueCount == 0) {
+                System.out.print(Colors.YELLOW + "empty" + Colors.RESET);
+            }
+            System.out.println(Colors.BRIGHT_WHITE + "]" + Colors.RESET);
+            System.out.println(Colors.BOLD + Colors.MAGENTA + "└" + "─".repeat(79) + Colors.RESET + "\n");
+            
+            // Start the thread, which will run the process for one time quantum
+            currentThread.start();
+            
+            try {
+                // Wait for the thread to finish its time quantum before continuing to the next process
+                currentThread.join();
+            } catch (InterruptedException e) {
+                System.out.println("Main thread interrupted.");
+            }
+            
+            // Check if the process is not finished
+            if (!process.isFinished()) {
+                // If the process still has remaining time, check if there are more processes in queue
+                if (!processQueue.isEmpty()) {
