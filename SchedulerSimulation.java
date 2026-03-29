@@ -598,3 +598,19 @@ public class SchedulerSimulation {
                     completedProcesses.add(process);
                 }
             } else {
+                // FEATURE 3: Process finished, add to completed list for summary
+                completedProcesses.add(process);
+            }
+        }
+        
+        // End of the scheduler simulation
+        System.out.println(Colors.BOLD + Colors.BRIGHT_GREEN + 
+                          "╔════════════════════════════════════════════════════════════════════════════════╗" + 
+                          Colors.RESET);
+        System.out.println(Colors.BOLD + Colors.BRIGHT_GREEN + "║" + Colors.RESET + 
+                          Colors.BG_GREEN + Colors.WHITE + Colors.BOLD + 
+                          "                     ✓  ALL PROCESSES COMPLETED  ✓                            " + 
+                          Colors.RESET + Colors.BOLD + Colors.BRIGHT_GREEN + "║" + Colors.RESET);
+        System.out.println(Colors.BOLD + Colors.BRIGHT_GREEN + 
+                          "╚════════════════════════════════════════════════════════════════════════════════╝" + 
+                          Colors.RESET + "\n");
