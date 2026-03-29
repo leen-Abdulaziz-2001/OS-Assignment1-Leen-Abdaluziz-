@@ -648,4 +648,13 @@ public class SchedulerSimulation {
         
         // Map the thread to the process, so we can track the process associated with each thread
         processMap.put(thread, process);
+        // FEATURE 1: Updated output message to include priority
+        // Example: "P1 (Priority: 4) enters the ready queue..."
+        System.out.println(Colors.BLUE + "  ➕ " + Colors.BOLD + Colors.CYAN + process.getName() + 
+                          Colors.RESET + Colors.YELLOW + " (Priority: " + process.getPriority() + ")" + 
+                          Colors.RESET + Colors.BLUE + " added to ready queue" + Colors.RESET + 
+                          " │ Burst time: " + Colors.YELLOW + process.getBurstTime() + "ms" + 
+                          Colors.RESET);
+    }
+
 
