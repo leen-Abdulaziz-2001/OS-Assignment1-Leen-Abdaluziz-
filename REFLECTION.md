@@ -9,7 +9,7 @@ Answer the following questions about your learning experience. Each answer shoul
 
 **Your Answer:**
 
-[Write your answer here. Discuss specific concepts like thread creation, thread states, how threads execute concurrently, what surprised you, etc.]
+[In this assignment, I learned the basics of multithreading and how threads work inside a program. I understood how to create and run threads using the Runnable interface and the start() method. I also learned about the different thread states such as New, Runnable, Running, Waiting, and Terminated. One important idea was how threads run concurrently and share CPU time. This helped me understand how scheduling works in real systems. Overall, it gave me a clearer idea of how programs handle multiple tasks at once.]
 
 ---
 
@@ -17,7 +17,7 @@ Answer the following questions about your learning experience. Each answer shoul
 
 **Your Answer:**
 
-[Describe the specific challenge. Was it understanding the code? Implementing a feature? Using Git? Explain what made it difficult and how it relates to the course concepts.]
+[The most challenging part of this assignment was understanding how the scheduling logic works with threads. It was sometimes confusing to follow how processes move in and out of the ready queue. Also, adding new features like priority and waiting time required careful changes in multiple parts of the code. I had to make sure everything stayed connected correctly. Debugging errors was also a bit difficult at first. This challenge helped me better understand how threads interact in a system.]
 
 ---
 
