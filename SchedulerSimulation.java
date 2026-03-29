@@ -434,3 +434,7 @@ public class SchedulerSimulation {
     public long getTotalWaitingTime() {
         return totalWaitingTime;
     }
+// FEATURE 3: Getter for last ready time
+    public long getLastReadyTime() {
+        return lastReadyTime;
+    }
