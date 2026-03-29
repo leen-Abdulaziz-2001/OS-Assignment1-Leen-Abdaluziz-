@@ -25,7 +25,7 @@ Answer the following questions about your learning experience. Each answer shoul
 
 **Your Answer:**
 
-[Describe your problem-solving approach. Did you read documentation? Ask for help? Debug systematically? What resources did you use? What strategies worked?]
+[To overcome these challenges, I worked step by step and focused on understanding each part of the code. I reviewed the logic carefully and tested the program after every small change. I also asked for help and guidance when I got stuck, which made things clearer. Breaking the problem into smaller parts made it easier to manage. I used trial and error to fix mistakes and understand the behavior. This approach helped me improve my problem-solving skills.]
 
 ---
 
