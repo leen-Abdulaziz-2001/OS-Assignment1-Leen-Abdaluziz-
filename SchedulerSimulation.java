@@ -418,3 +418,8 @@ public class SchedulerSimulation {
     public int getRemainingTime() {
         return remainingTime;
     }
+ 
+    // FEATURE 3: Getter for creation time
+    public long getCreationTime() {
+        return creationTime;
+    }
