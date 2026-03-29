@@ -446,4 +446,16 @@ public class SchedulerSimulation {
         long waitTime = currentTime - lastReadyTime; // Time spent waiting since last added to queue
         totalWaitingTime += waitTime;
     }
+// FEATURE 3: Method to set last ready time when process re-enters queue
+    public void setLastReadyTime(long time) {
+        this.lastReadyTime = time;
+    }
+
+    // Check if the process has finished (i.e., no remaining time)
+    public boolean isFinished() {
+        return remainingTime <= 0;
+    }
+}
+
+public class SchedulerSimulation {
 
