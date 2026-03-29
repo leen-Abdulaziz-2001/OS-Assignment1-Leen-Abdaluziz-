@@ -461,4 +461,58 @@ public class SchedulerSimulation {
 // FEATURE 2: Static counter for context switches
     // Incremented each time a new process starts running
     private static int contextSwitchCount = 0;
+// FEATURE 3: List to store all completed processes for summary
+    private static List<Process> completedProcesses = new ArrayList<>();
+
+    public static void main(String[] args) {
+        // ⚠️ IMPORTANT: Put your student ID here to seed the random number generator
+        // This makes your output unique to you - DO NOT forget to change this!
+        int studentID = 447851247;  // ← CHANGE THIS TO YOUR ACTUAL STUDENT ID
+        
+        Random random = new Random(studentID);
+        
+        // Define the time quantum in milliseconds (the maximum time a process gets in one round)
+        // Choose a random number between 2000 and 5000 ms with a step of 1000 ms
+        int timeQuantum = 2000 + random.nextInt(4) * 1000; // Random: 2000, 3000, 4000, or 5000
+        
+        // Generate random number of processes between 10 and 20
+        int numProcesses = 10 + random.nextInt(11); // Random number between 10 and 20
+        
+        // Queue to manage processes in a First-In-First-Out (FIFO) order
+        Queue<Thread> processQueue = new LinkedList<>();
+        
+        // Map to associate each thread with its respective process object
+        Map<Thread, Process> processMap = new HashMap<>();
+        
+        // Print simulation header with elegant formatting
+        System.out.println("\n" + Colors.BOLD + Colors.BRIGHT_CYAN + 
+                          "╔═══════════════════════════════════════════════════════════════════════════════════════╗" + 
+                          Colors.RESET);
+        System.out.println(Colors.BOLD + Colors.BRIGHT_CYAN + "║" + Colors.RESET + 
+                          Colors.BG_BLUE + Colors.BRIGHT_WHITE + Colors.BOLD + 
+                          "                          CPU SCHEDULER SIMULATION                                " + 
+                          Colors.RESET + Colors.BOLD + Colors.BRIGHT_CYAN + "║" + Colors.RESET);
+        System.out.println(Colors.BOLD + Colors.BRIGHT_CYAN + 
+                          "╠═══════════════════════════════════════════════════════════════════════════════════════╣" + 
+                          Colors.RESET);
+        System.out.println(Colors.BOLD + Colors.BRIGHT_CYAN + "║" + Colors.RESET + 
+                          Colors.YELLOW + "  ⚙ Processes:     " + Colors.RESET + Colors.BRIGHT_YELLOW + 
+                          String.format("%-65s", numProcesses) + 
+                          Colors.BOLD + Colors.BRIGHT_CYAN + "║" + Colors.RESET);
+        System.out.println(Colors.BOLD + Colors.BRIGHT_CYAN + "║" + Colors.RESET + 
+                          Colors.YELLOW + "  ⏱ Time Quantum:  " + Colors.RESET + Colors.BRIGHT_YELLOW + 
+                          String.format("%-65s", timeQuantum + "ms") + 
+                          Colors.BOLD + Colors.BRIGHT_CYAN + "║" + Colors.RESET);
+        System.out.println(Colors.BOLD + Colors.BRIGHT_CYAN + "║" + Colors.RESET + 
+                          Colors.YELLOW + "  🔑 Student ID:    " + Colors.RESET + Colors.BRIGHT_YELLOW + 
+                          String.format("%-65s", studentID) + 
+                          Colors.BOLD + Colors.BRIGHT_CYAN + "║" + Colors.RESET);
+        System.out.println(Colors.BOLD + Colors.BRIGHT_CYAN + 
+                          "╚═══════════════════════════════════════════════════════════════════════════════════════╝" + 
+                          Colors.RESET + "\n");
+        
+        // Create 'numProcesses' number of processes
+        for (int i = 1; i <= numProcesses; i++) {
+            // Random burst time for each process between timeQuantum/2 and 3*timeQuantum
+            int burstTime = timeQuantum/2 + random.nextInt(2 * timeQuantum + 1);
 
