@@ -515,4 +515,37 @@ public class SchedulerSimulation {
         for (int i = 1; i <= numProcesses; i++) {
             // Random burst time for each process between timeQuantum/2 and 3*timeQuantum
             int burstTime = timeQuantum/2 + random.nextInt(2 * timeQuantum + 1);
+             // FEATURE 1: Generate random priority between 1 and 5 (5 is highest)
+            int priority = 1 + random.nextInt(5); // Random number between 1 and 5
+            
+            // Create a new process object with a unique name, burst time, time quantum, and priority
+            // FEATURE 1: Added priority parameter
+            Process process = new Process("P" + i, burstTime, timeQuantum, priority);
+            
+            // Add the process to the ready queue and the map
+            addProcessToQueue(process, processQueue, processMap);
+        }
+        
+        // Start of the scheduler simulation
+        System.out.println(Colors.BOLD + Colors.GREEN + 
+                          "╔════════════════════════════════════════════════════════════════════════════════╗" + 
+                          Colors.RESET);
+        System.out.println(Colors.BOLD + Colors.GREEN + "║" + Colors.RESET + 
+                          Colors.BG_GREEN + Colors.WHITE + Colors.BOLD + 
+                          "                        ▶  SCHEDULER STARTING  ◀                               " + 
+                          Colors.RESET + Colors.BOLD + Colors.GREEN + "║" + Colors.RESET);
+        System.out.println(Colors.BOLD + Colors.GREEN + 
+                          "╚════════════════════════════════════════════════════════════════════════════════╝" + 
+                          Colors.RESET + "\n");
+        
+        // Loop to manage the scheduling of processes
+        while (!processQueue.isEmpty()) {
+            // Get the next thread from the queue (FIFO)
+            Thread currentThread = processQueue.poll(); // Dequeues the next thread
+            
+            // FEATURE 2: Increment context switch counter when a new process starts running
+            contextSwitchCount++;
+            
+            // Retrieve the process associated with the thread from the map
+            Process process = processMap.get(currentThread);
 
