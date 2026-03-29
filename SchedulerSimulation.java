@@ -458,4 +458,7 @@ public class SchedulerSimulation {
 }
 
 public class SchedulerSimulation {
+// FEATURE 2: Static counter for context switches
+    // Incremented each time a new process starts running
+    private static int contextSwitchCount = 0;
 
