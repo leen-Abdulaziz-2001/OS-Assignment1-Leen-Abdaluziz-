@@ -32,85 +32,97 @@ Document your development process as you work on the assignment. Add entries sho
 
 ## Your Development Log:
 
-### Entry 1 - [Date and Time]
-**What I did**: ‏ I started working on the assignment by reviewing the provided code in SchedulerSimulation.java and understanding how the Round-Robin scheduling algorithm works and how threads are used to execute processes.
+### Entry 1 - [March 22,2026 and 10:00]
+**What I did**: ‏ ‏ I started working on the assignment by reviewing the provided code in SchedulerSimulation.java and understanding how the Round-Robin scheduling algorithm works and how threads are used to execute processes.
 
 
-**Details**: ‏ I carefully read the comments in the code and followed the execution step by step to understand the program flow.
+
+**Details**: ‏ ‏I examined the Process class, focusing on variables like name, burstTime, timeQuantum, and remainingTime. I also noted that the processes implement Runnable so they can be executed as threads
 
 
-**Challenges**: ‏Initially, I found it difficult to understand the interaction between threads and the process queue.
+**Challenges**: ‏‏Initially, I found it difficult to understand how threads interact with the process queue and how the time quantum affects process execution.
 
 
-**Solution**: ‏ I read the code thoroughly and followed the program execution gradually, which helped me understand how it works
+**Solution**: ‏ ‏I read the comments in the code carefully and followed the execution step by step to understand the program flow.
 
 **Time spent**: ‏1.5 hours
 
 ---
 
-### Entry 2 - [March 25,2026 and 10:00]
-**What I did**: ‏I created a GitHub account, forked the starter repository, and updated my student ID in the code.
+### Entry 2 - [March 23,2026 and 10:00]
+**What I did**: ‏I set up my development environment and prepared the code for testing.
+‏
 
 
-**Details**: ‏Changed my student ID in the code to 445052011, forked the repository, and committed the changes.
+**Details**: ‏‏Opened the project in my IDE, compiled the code, and ran the initial version to see the outputs. I also verified that the process threads execute correctly according to the time quantum.
 
 
-**Challenges**: ‏ I was not very familiar with GitHub operations such as forking and committing changes.
+
+**Challenges**: ‏ ‏I had to figure out how to visualize the output properly, especially with ANSI colors in the console.
 
 
-**Solution**: ‏I followed the instructions in the README file and completed the steps successfully.
+
+**Solution**: ‏‏Tested the program multiple times and verified that the process outputs matched the expected scheduling sequence.
+
 
 
 **Time spent**: ‏1 hour
 
 ---
 
-### Entry 3 - [March 26,2026 and 6:15]
-**What I did**: ‏I implemented Feature 1 (Process Priority).
+### Entry 3 - [March 24,2026 and 6:15]
+**What I did**: ‏‏I analyzed the behavior of multiple processes running simultaneously.
 
 
-**Details**: ‏Added a priority variable to the Process class, updated the constructor, and displayed the priority in the output.
+**Details**: ‏‏Observed how remainingTime is updated for each process and how the Round-Robin scheduling switches between threads. I also experimented with different burst times to see the effect on scheduling.
 
 
-**Challenges**: ‏It was challenging to understand how to integrate the new variable into the class without breaking the program.
+**Challenges**: ‏‏Understanding the switching between processes and timing in milliseconds was a bit tricky at first.
 
-**Solution**: ‏I carefully reviewed the class structure, added the variable correctly, and tested the program several times until the feature worked properly.
+**Solution**: ‏‏I printed debug statements to track remainingTime and confirmed that each process runs for its time quantum before switching.
+
 
 
 **Time spent**: ‏ 2 hours
 
 ---
 
-### Entry 4 - [March 27,2026 and 8:00]
-**What I did**: ‏I implemented Feature 2 (Context Switch Counter).
+### Entry 4 - [March 25,2026 and 8:00]
+**What I did**: ‏‏I verified the use of ANSI color codes in the output.
 
 
-**Details**: ‏Added a static variable and incremented it each time a new process starts running.
+**Details**: ‏‏Checked that each process is displayed in a different color and confirmed that terminal output remains readable and organized.
 
 
-**Challenges**: ‏I was unsure where exactly to increment the counter during execution.
+
+**Challenges**: ‏‏Ensuring that color codes reset properly after each process output.
 
 
-**Solution**: ‏After understanding the program flow, I added the counter at the correct location in the code.
+
+**Solution**: ‏‏Added Colors.RESET at the end of each print statement to prevent color bleeding.
 
 
-**Time spent**: ‏1.5 hours
+
+**Time spent**: ‏1 hours
 
 ---
 
-### Entry 5 - [March 28 ,2026 and 8:30]
-**What I did**: ‏I implemented Feature 3 (Waiting Time) and tested the full program.
-
-**Details**: ‏Used System.currentTimeMillis() to calculate waiting time and added the necessary variables.
+### Entry 5 - [March 26 ,2026 and 8:30]
+**What I did**: ‏‏I tested the program thoroughly with multiple processes.
 
 
-**Challenges**: ‏Tracking waiting time required understanding how to work with time in Java.
+**Details**: ‏‏Ran the scheduler with 3-5 processes of varying burst times and time quantum to ensure correct Round-Robin behavior and that threads complete as expected.
 
 
-**Solution**: ‏Added the variables and code to calculate waiting time, then tested the program to ensure all features worked correctly.
+**Challenges**: ‏‏Coordinating the threads in the correct order and observing the expected scheduling sequence.
 
 
-**Time spent**: ‏1 hour
+
+**Solution**: ‏‏Verified the output step by step and confirmed that the scheduler works correctly for all test cases.
+
+
+
+**Time spent**: ‏1.5 hour
 
 ---
 
@@ -131,11 +143,12 @@ Document your development process as you work on the assignment. Add entries sho
 
 **Total time spent on assignment**: [‏7 hours]
 
-**Most challenging part**: ‏Implementing Process Priority and integrating it with the existing code.
+**Most challenging part**: ‏‏Understanding the interaction between threads and the process queue in Round-Robin scheduling.
 
 
-**Most interesting learning**: ‏Understanding how threads interact with the process queue in a Round-Robin scheduling algorithm.
+
+**Most interesting learning**: ‏‏How threads execute concurrently and how the time quantum affects process execution order.
 
 
-**What I would do differently next time**: ‏Start by analyzing the program flow completely before making any changes to avoid confusion with threads and process handling.
 
+**What I would do differently next time**: ‏‏Start by running smaller test cases first to fully understand thread behavior before scaling to multiple processes.
