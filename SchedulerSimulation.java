@@ -429,4 +429,8 @@ public class SchedulerSimulation {
     public long getCreationTime() {
         return creationTime;
     }
-
+  
+    // FEATURE 3: Getter for total waiting time
+    public long getTotalWaitingTime() {
+        return totalWaitingTime;
+    }
