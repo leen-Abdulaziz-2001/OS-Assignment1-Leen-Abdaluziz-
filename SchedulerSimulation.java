@@ -44,10 +44,10 @@ private long lastReadyTime; // Last time entered ready queue
         this.burstTime = burstTime;
         this.timeQuantum = timeQuantum;
         this.remainingTime = burstTime; // Initially, remaining time is equal to the burst time
-        // FEATURE 1
+        // FEATURE 1:Assign priority to the process
 this.priority = priority;
 
-// FEATURE 2
+// FEATURE 2: Initialize waiting time tracking variables
 this.creationTime = System.currentTimeMillis();
 this.totalWaitingTime = 0;
 this.lastReadyTime = this.creationTime;
