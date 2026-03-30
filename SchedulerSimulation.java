@@ -151,6 +151,10 @@ this.lastReadyTime = this.creationTime;
     public int getRemainingTime() {
         return remainingTime;
     }
+    // FEATURE 1: Getter for priority
+public int getPriority() {
+    return priority;
+}
 
     // Check if the process has finished (i.e., no remaining time)
     public boolean isFinished() {
@@ -306,11 +310,11 @@ Process process = new Process("P" + i, burstTime, timeQuantum, priority);
         // Map the thread to the process, so we can track the process associated with each thread
         processMap.put(thread, process);
         
-        // Print a message indicating the process has entered the ready queue
-        System.out.println(Colors.BLUE + "  ➕ " + Colors.BOLD + Colors.CYAN + process.getName() + 
-                          Colors.RESET + Colors.BLUE + " added to ready queue" + Colors.RESET + 
-                          " │ Burst time: " + Colors.YELLOW + process.getBurstTime() + "ms" + 
-                          Colors.RESET);
-        
+       // FEATURE 1: Show priority when adding process
+System.out.println(Colors.BLUE + "  ➕ " + Colors.BOLD + Colors.CYAN + process.getName() + 
+                  Colors.RESET + Colors.YELLOW + " (Priority: " + process.getPriority() + ")" + 
+                  Colors.RESET + Colors.BLUE + " added to ready queue" + Colors.RESET + 
+                  " │ Burst time: " + Colors.YELLOW + process.getBurstTime() + "ms" + 
+                  Colors.RESET);
     } 
     
