@@ -160,6 +160,21 @@ public int getPriority() {
     public boolean isFinished() {
         return remainingTime <= 0;
     }
+    // FEATURE 2: Update waiting time
+public void updateWaitingTime() {
+    long currentTime = System.currentTimeMillis();
+    totalWaitingTime += (currentTime - lastReadyTime);
+}
+
+// FEATURE 2: Set last ready time
+public void setLastReadyTime(long time) {
+    this.lastReadyTime = time;
+}
+
+// FEATURE 2: Getter for total waiting time
+public long getTotalWaitingTime() {
+    return totalWaitingTime;
+}
 }
 
 public class SchedulerSimulation {
