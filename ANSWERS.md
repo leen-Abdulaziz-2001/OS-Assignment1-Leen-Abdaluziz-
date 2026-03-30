@@ -96,6 +96,7 @@ Web Server Request Handling
 1. The difference between threads and processes
 2. How Round-Robin scheduling works
 3. Thread lifecycle and states
+4. I also implemented a context switch counter to track how many times the CPU switches between processes.
 
 **Concepts I need to study more:**
 1. Thread synchronization
