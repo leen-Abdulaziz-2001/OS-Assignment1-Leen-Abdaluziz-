@@ -66,12 +66,12 @@ In this example, process P2 was given a time quantum of 3000ms but did not finis
 **Question**: Give **TWO** real-world examples where Round-Robin scheduling with threads would be useful. Explain why this scheduling algorithm works well for those scenarios.
 
 **Your Answer:**
-Operating systems manage multiple programs running at the same time. These programs compete for CPU time and need to be scheduled efficiently. Each process must get a fair share of the CPU. The system ensures that no single process takes all the resources. This is especially important in multitasking environments. Many applications depend on this scheduling. It helps maintain system stability and performance
-
+‏Operating systems run multiple programs at the same time, and each program needs CPU ‏Round-Robin scheduling is used in many real-world systems where multiple tasks need to share CPU time fairly. It ensures that each task gets an equal chance to execute, which improves responsiveness and prevents starvation
 ### Example 1: [Name of application/scenario]
 Operating System CPU Scheduling
 
-**Description**: Operating systems manage multiple programs running at the same time, such as browsers, background applications, and system services. Each program needs CPU time to execute its tasks. The system must organize these processes efficiently to avoid delays. This is especially important in multitasking environments. Users expect smooth performance while using different applications. Therefore, scheduling plays an important role in system performance.
+**Description**: ‏Operating systems run multiple programs at the same time, and each program needs CPU time.
+‏Why Round-Robin works well here: It gives each process a fixed time quantum, ensuring fairness and preventing any process from monopolizing the CPU, which improves system responsive.  
 [Describe the real-world scenario or application]
 
 **Why Round-Robin works well here**: Round-Robin scheduling is suitable because it gives each process a fixed time quantum. This ensures fairness among all running processes. No single process can monopolize the CPU. It also improves responsiveness for user applications. Each process gets CPU time regularly. This makes the system stable and predictable.
@@ -81,7 +81,8 @@ Operating System CPU Scheduling
 Web Server Request Handling
 
 
-**Description**: A web server handles multiple user requests at the same time, such as loading web pages or processing API calls. Each request is treated as a separate task or thread. The server must manage these requests efficiently to avoid delays. Users expect fast responses when accessing websites. The number of requests can increase under heavy traffic. Efficient scheduling helps maintain performance.
+**Description**: ‏Web servers handle multiple user requests simultaneously, where each request runs as a thread.
+‏Why Round-Robin works well here: It processes requests in turns, preventing any single request from blocking others and keeping the server responsive, especially under heavy load.
 [Describe the real-world scenario or application]
 
 **Why Round-Robin works well here**: Round-Robin scheduling allows each request to be processed in turns. This prevents any single request from blocking others. It ensures fairness between all users. The server remains responsive even under heavy load. Each request gets CPU time in a predictable manner. This improves user experience. It also helps maintain system performance.
