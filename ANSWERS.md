@@ -10,7 +10,7 @@ Answer all 4 questions with detailed explanations. Each answer should be **3-5 s
 **Question**: Explain the difference between a **thread** and a **process**. Why did we use threads in this assignment instead of creating separate processes?
 
 **Your Answer:**
-A process is a program in execution that has its own independent memory and system resources. In contrast, a thread is a smaller unit within a process that shares the same memory with other threads. This makes threads more lightweight and faster to create compared to processes. Processes require more overhead because each one needs separate resources. Threads, however, are more efficient when multiple tasks need to run within the same program. In this assignment, threads were used to simulate CPU scheduling more efficiently. Based on expert guidance, using threads simplifies communication and improves performance in such simulations.
+A process is a program in execution that has its own independent memory and system resources. In contrast, a thread is a smaller unit within a process that shares the same memory with other threads. This makes threads more lightweight and faster to create compared to processes. Processes require more overhead because each one needs separate resources. Threads, however, are more efficient when multiple tasks need to run within the same program. In this assignment, threads were used to simulate CPU scheduling more efficiently using threads simplifies communication and improves performance in such simulations.
 
 [Write your answer here. Consider: What is a process? What is a thread? How do they differ in terms of memory, resources, creation overhead? Why are threads more suitable for this simulation?]
 
@@ -42,8 +42,11 @@ In this example, process P2 was given a time quantum of 3000ms but did not finis
 
 **Question**: A thread can be in different states: **New**, **Runnable**, **Running**, **Waiting**, **Terminated**. Walk through these states for one process (P1) from your simulation.
 
-**Your Answer:**A thread goes through several states during its lifecycle in the program. First, it is in the New state when the thread object is created but not started. Then it moves to the Runnable state after calling the start method. In this state, it is ready to run but waiting for CPU allocation. When the scheduler selects it, the thread enters the Running state and begins execution. During execution, it may enter the Waiting state when sleep is called. Finally, after finishing its task, it enters the Terminated state. This sequence reflects how threads are managed during execution.
+**Your Answer:**A thread goes through several states during execution. For process P1, it is in the New state when the thread is created using new Thread(process). It becomes Runnable after calling start() and waits in the ready queue.
 
+‏P1 enters the Running state when the scheduler selects it to execute. During execution, it goes to the Waiting state when Thread.sleep() is used to simulate the time quantum.
+
+‏Finally, P1 reaches the Terminated state when it finishes execution and its remaining time becomes zero.
 [Write your answer here. For each state, explain when P1 enters that state during the simulation. Use your understanding of the code to trace through the lifecycle.]
 
 1. **New**: [When is P1 in New state?]
