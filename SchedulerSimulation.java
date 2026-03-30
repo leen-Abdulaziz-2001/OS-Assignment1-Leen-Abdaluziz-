@@ -314,7 +314,11 @@ Process process = new Process("P" + i, burstTime, timeQuantum, priority);
         System.out.println(Colors.BOLD + Colors.BRIGHT_GREEN + 
                           "╚════════════════════════════════════════════════════════════════════════════════╝" + 
                           Colors.RESET + "\n");
+        System.out.println(Colors.BRIGHT_CYAN + 
+    "Total context switches: " + contextSwitches + 
+    Colors.RESET);
     }
+    
     
     // Method to add a process to the queue and map, while printing a "ready" message
     public static void addProcessToQueue(Process process, Queue<Thread> processQueue, 
