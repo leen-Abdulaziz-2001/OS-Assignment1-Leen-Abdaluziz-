@@ -178,12 +178,13 @@ public long getTotalWaitingTime() {
 }
 
 public class SchedulerSimulation {
+    // FEATURE 2: Context Switch Counter
+    static int contextSwitches = 0;
     public static void main(String[] args) {
         // ⚠️ IMPORTANT: Put your student ID here to seed the random number generator
         // This makes your output unique to you - DO NOT forget to change this!
         int studentID = 445052011;  // ← CHANGE THIS TO YOUR ACTUAL STUDENT ID
-        // FEATURE 2: Context Switch Counter
-    static int contextSwitches = 0;
+    
         Random random = new Random(studentID);
         
         // Define the time quantum in milliseconds (the maximum time a process gets in one round)
