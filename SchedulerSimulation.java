@@ -39,11 +39,18 @@ private long totalWaitingTime; // Total waiting time in queue
 private long lastReadyTime; // Last time entered ready queue
 
     // Constructor to initialize the process with name, burst time, and time quantum
-    public Process(String name, int burstTime, int timeQuantum) {
+    public Process(String name, int burstTime, int timeQuantum, int priority) {
         this.name = name;
         this.burstTime = burstTime;
         this.timeQuantum = timeQuantum;
         this.remainingTime = burstTime; // Initially, remaining time is equal to the burst time
+        // FEATURE 1
+this.priority = priority;
+
+// FEATURE 2
+this.creationTime = System.currentTimeMillis();
+this.totalWaitingTime = 0;
+this.lastReadyTime = this.creationTime;
     }
 
     // This method will be called when the thread for this process is started
