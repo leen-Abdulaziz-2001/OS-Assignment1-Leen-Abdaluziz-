@@ -12,7 +12,13 @@ Answer all 4 questions with detailed explanations. Each answer should be **3-5 s
 **Your Answer:**
 A process is a program in execution that has its own independent memory and system resources. In contrast, a thread is a smaller unit within a process that shares the same memory with other threads. This makes threads more lightweight and faster to create compared to processes. Processes require more overhead because each one needs separate resources. Threads, however, are more efficient when multiple tasks need to run within the same program. In this assignment, threads were used to simulate CPU scheduling more efficiently using threads simplifies communication and improves performance in such simulations.
 
-[Write your answer here. Consider: What is a process? What is a thread? How do they differ in terms of memory, resources, creation overhead? Why are threads more suitable for this simulation?]
+[Write your answer here. Consider: What is a process?process is a program in execution that has its own memory space and resources. Each process runs independently and does not share its data with other processes easily.
+A What is a thread? thread is a smaller unit inside a process. Multiple threads can exist within the same process and they share the same memory and resources. How do they differ in terms of memory, resources, creation overhead?Memory:
+Processes have separate memory spaces, while threads share the same memory.
+Resources:
+Processes use more system resources, but threads share resources within the same process.
+Creation overhead:
+Creating a process is slower and heavier, while creating a thread is faster and lighter.  Why are threads more suitable for this simulation? Threads are more suitable because they are lightweight and faster to create, which makes the simulation more efficient. Since all threads share the same memory, it is easier to manage and coordinate between processes in the simulation. Also, using threads helps simulate concurrent execution more effectively, which is important in CPU scheduling like Round-Robin.]
 
 ---
 
