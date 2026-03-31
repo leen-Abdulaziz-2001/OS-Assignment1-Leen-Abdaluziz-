@@ -55,15 +55,16 @@ In this example, process P2 was given a time quantum of 3000ms but did not finis
 ‏Finally, P1 reaches the Terminated state when it finishes execution and its remaining time becomes zero.
 [Write your answer here. For each state, explain when P1 enters that state during the simulation. Use your understanding of the code to trace through the lifecycle.]
 
-1. **New**: [When is P1 in New state?]
+1. **New**: [When is P1 in New state?When P1 is created using new Thread(process) before calling start().]
 
-2. **Runnable**: [When does P1 become Runnable?]
+2. **Runnable**: [When does P1 become Runnable?After calling start(), P1 enters the ready queue waiting for CPU.
+]
 
-3. **Running**: [When is P1 Running?]
+3. **Running**: [When is P1 Running?When the scheduler selects P1 and it starts executing.]
 
-4. **Waiting**: [When/why would P1 be Waiting?]
+4. **Waiting**: [When/why would P1 be Waiting?When Thread.sleep() is used during execution to simulate delay]
 
-5. **Terminated**: [When is P1 Terminated?]
+5. **Terminated**: [When is P1 Terminated?When P1 finishes execution and remainingTime becomes zero.]
 
 ---
 
